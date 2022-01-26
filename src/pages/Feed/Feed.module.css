@@ -1,0 +1,40 @@
+.container {
+    max-width: 692px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.torespond {
+ background-color: #fff; 
+ border: 2px solid #000;
+ color: #000;
+ fill: #000;
+ border-radius: 1rem;
+ height: 2rem;
+ padding: 0 1rem;
+ font-size: 12px;
+ line-height: 12px;
+ cursor: pointer;
+ margin-left: 556px;
+}
+
+.torespond:hover {
+   background-color: rgba(158, 158, 158, 0.137);
+}
+
+.text {
+    font-size: 18px;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.category {
+    font-size: 15px;
+}
+
+.questcontainer {
+    padding: 24px;
+    border-bottom: 2px solid #ebf2f7;
+}
