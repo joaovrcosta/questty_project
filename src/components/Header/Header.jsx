@@ -7,8 +7,6 @@ const Header = ({onOpenNewQuestForm}) =>{
   return (
     <header className={styles.header}>
       <nav className={`${styles.nav} container`}>
-        <Link to="/" className={styles.logo}>
-        </Link>
         <input className={styles.search} placeholder="Digite o nome do post"></input>
         <button
           className={styles.makequestbutton}

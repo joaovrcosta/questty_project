@@ -1,4 +1,3 @@
-import { BrowserRouter } from "react-router-dom"
 import { useState } from 'react'
 import { NewQuestModal } from "./components/Modal/NewQuestModal";
 import Header from "./components/Header/Header";
@@ -22,14 +21,12 @@ function App() {
   return (
 
     <QuestsProvider>
-      <BrowserRouter>
           <Header onOpenNewQuestForm={handleOpenNewQuestModal}/>
-          <Feed />
+            <Feed />
           <NewQuestModal
           isOpen={isNewQuestOpen}
           onRequestClose={handleCloseNewQuestModal}
           />
-      </BrowserRouter>
     </QuestsProvider>
   );
 }
