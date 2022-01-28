@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Modal from "react-modal";
-import { api } from "../../services/api";
+import { QuestsContext } from "../../QuestsContexts";
 import styles from "./styles.module.css";
 
 export function NewQuestModal({ isOpen, onRequestClose }) {
+  const { createQuest } = useContext(QuestsContext)
 
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
@@ -12,14 +13,11 @@ export function NewQuestModal({ isOpen, onRequestClose }) {
   async function handleCreateNewQuest(e) {
     e.preventDefault();
 
-    const data = {
+    await createQuest({
       title,
       text,
-      category,
-    }
-
-    const response = await api.post('/perguntas', data)
-    const { quest } = response.data;
+      category
+    })
 
     setTitle('');
     setText('');
@@ -35,26 +33,31 @@ export function NewQuestModal({ isOpen, onRequestClose }) {
       className="react-modal-content"
     >
       <form onSubmit={handleCreateNewQuest}>
+
         <input
           value={title}
           className={styles.titulo}
-          placeholder="Titulo da pergunta"
+          placeholder="Titulo do Post"
           onChange={event => setTitle(event.target.value)}
         ></input>
+
         <textarea
           value={text}
           className={styles.questtext}
-          placeholder="Escreva sua pergunta aqui. (Para conseguir uma ótima resposta, descreva sua dúvida de forma simples e clara)"
+          placeholder="Escreva aqui o post"
           onChange={event => setText(event.target.value)}
         ></textarea>
+
           <input 
           className={styles.titulo} 
-          placeholder="Matéria" 
+          placeholder="Categoria" 
           type="text" 
           value={category}
           onChange={event => setCategory(event.target.value)}
           />
-        <button type="submit" className={styles.perguntar}>FAÇA SUA PERGUNTA</button>
+
+        <button type="submit" className={styles.perguntar}>POSTAR</button>
+        
       </form>
     </Modal>
   )}

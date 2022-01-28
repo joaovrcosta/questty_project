@@ -13,16 +13,16 @@ createServer({
       quests: [
         {
           id:1,
-          title: "O que é a Hipotenusa",
-          text: "O que é pessoal, me ajudem por favor",
-          category: "Matematica",
+          title: "Eae galera, beleza?",
+          text: "Como vocês estão? Viram as ultimas noticias?",
+          category: "Noticias",
           createdAt: new Date()
         },
         {
           id:2,
-          title: "O que é a Hipotenusa",
-          text: "O que é pessoal, me ajudem por favor",
-          category: "Matematica",
+          title: "Oi pessoal, alguem para conversar?",
+          text: "Bora criar um grupo pessoal",
+          category: "Bate Papo",
           createdAt: new Date()
         }
       ],

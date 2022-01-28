@@ -1,32 +1,23 @@
-import { useEffect, useState } from 'react';
-import { api } from '../../services/api';
-// import styles from './Feed.module.css'
+import { useContext } from 'react';
+import styles from './Feed.module.css'
+import { QuestsContext } from '../../QuestsContexts'
 
 export function Feed() {
-  const [quests, setQuests] = useState([]);
+  const { quests } = useContext(QuestsContext);
 
-
-  useEffect(() => {
-    api.get('perguntas')
-    .then(response => setQuests(response.data.quests))
-  }, []);
-
-
-  // const quest = {
-  //   category: "Quimica - 24 segundos",
-  //   text: "O que é um atomo, alguém me explica?",
-  // };
+  console.log(quests)
 
   return (
     <>
     {quests.map(quest => {
       return (
-        <div key={quest.id}>
+        <form className={styles.tweet} key={quest.id}>
           <h1>{quest.title}</h1>
           <p>{quest.text}</p>
           <span>{quest.category}</span>
-          <span>{quest.createdAt}</span>
-        </div>
+          <span>{new Intl.DateTimeFormat('pt-BR').format(new Date(quest.createdAt))}</span>
+          <button>Responder</button>
+        </form>
       )
     })}
     </>
