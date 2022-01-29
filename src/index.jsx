@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { createServer, Model } from 'miragejs';
+import { createServer, Model } from "miragejs";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Quest } from "./pages/Quest/Quest";
+import { QuestsProvider } from "./QuestsContexts";
 
 createServer({
   models: {
@@ -12,45 +15,48 @@ createServer({
     server.db.loadData({
       quests: [
         {
-          id:1,
+          id: 1,
           title: "Eae galera, beleza?",
           text: "Como vocês estão? Viram as ultimas noticias?",
           category: "Noticias",
-          createdAt: new Date()
+          createdAt: new Date(),
         },
         {
-          id:2,
+          id: 2,
           title: "Oi pessoal, alguem para conversar?",
           text: "Bora criar um grupo pessoal",
           category: "Bate Papo",
-          createdAt: new Date()
-        }
+          createdAt: new Date(),
+        },
       ],
-    })
+    });
   },
 
   routes() {
-    this.namespace = 'api';
+    this.namespace = "api";
 
-    this.get('/perguntas', () => {
-      return this.schema.all('quest')
-    })
-    this.post('/perguntas', (schema, request) => {
-      const data = JSON.parse(request.requestBody)
+    this.get("/perguntas", () => {
+      return this.schema.all("quest");
+    });
+    this.post("/perguntas", (schema, request) => {
+      const data = JSON.parse(request.requestBody);
 
-      return schema.create('quest', data)
-    }) 
-  }
-})
- 
-
-
-
-
+      return schema.create("quest", data);
+    });
+  },
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <QuestsProvider>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="tarefa/:id" element={<Quest />} />
+        </Routes>
+      </BrowserRouter>
+    </React.StrictMode>
+  </QuestsProvider>,
+
   document.getElementById("root")
 );

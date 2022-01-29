@@ -1,14 +1,12 @@
-import { useState } from 'react'
+import { useState } from "react";
 import { NewQuestModal } from "./components/Modal/NewQuestModal";
 import Header from "./components/Header/Header";
-import './styles/global.css';
+import "./styles/global.css";
 import { Feed } from "./pages/Feed/Feed";
-import { QuestsProvider } from './QuestsContexts';
+import { Quest } from "./pages/Quest/Quest";
 
 function App() {
   const [isNewQuestOpen, setIsNewQuestOpen] = useState(false);
-  
-
 
   function handleOpenNewQuestModal() {
     setIsNewQuestOpen(true);
@@ -17,17 +15,18 @@ function App() {
   function handleCloseNewQuestModal() {
     setIsNewQuestOpen(false);
   }
-  
-  return (
 
-    <QuestsProvider>
-          <Header onOpenNewQuestForm={handleOpenNewQuestModal}/>
-            <Feed />
-          <NewQuestModal
-          isOpen={isNewQuestOpen}
-          onRequestClose={handleCloseNewQuestModal}
-          />
-    </QuestsProvider>
+  return (
+    <>
+      <Header onOpenNewQuestForm={handleOpenNewQuestModal} />
+      <Feed>
+        <Quest />
+      </Feed>
+      <NewQuestModal
+        isOpen={isNewQuestOpen}
+        onRequestClose={handleCloseNewQuestModal}
+      />
+    </>
   );
 }
 

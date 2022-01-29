@@ -1,11 +1,10 @@
 import { useContext } from 'react';
 import styles from './Feed.module.css'
 import { QuestsContext } from '../../QuestsContexts'
+import { Link } from 'react-router-dom';
 
 export function Feed() {
   const { quests } = useContext(QuestsContext);
-
-  console.log(quests)
 
   return (
     <>
@@ -16,7 +15,7 @@ export function Feed() {
           <p>{quest.text}</p>
           <span>{quest.category}</span>
           <span>{new Intl.DateTimeFormat('pt-BR').format(new Date(quest.createdAt))}</span>
-          <button>Responder</button>
+          <Link to={"tarefa/"+quest.id}><button className={styles.response}>Responder</button></Link>
         </form>
       )
     })}
