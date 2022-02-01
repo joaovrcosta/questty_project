@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NewQuestModal } from "./components/Modal/NewQuestModal";
 import Header from "./components/Header/Header";
-import "./styles/global.css";
+import "./styles/global.scss";
 import { Feed } from "./pages/Feed/Feed";
 import { Quest } from "./pages/Quest/Quest";
 

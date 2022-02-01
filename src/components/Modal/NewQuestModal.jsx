@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import Modal from "react-modal";
 import { QuestsContext } from "../../QuestsContexts";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 export function NewQuestModal({ isOpen, onRequestClose }) {
   const { createQuest } = useContext(QuestsContext)

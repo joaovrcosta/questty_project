@@ -1,4 +1,4 @@
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 // import { ReactComponent as Questty } from "../../assets/logo-image_vetor.svg";
 
 

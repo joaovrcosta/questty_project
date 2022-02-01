@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import styles from './Feed.module.css'
+import styles from './Feed.module.scss'
 import { QuestsContext } from '../../QuestsContexts'
 import { Link } from 'react-router-dom';
 
