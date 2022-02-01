@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Quest } from "./pages/Quest/Quest";
 import { QuestsProvider } from "./QuestsContexts";
 
+import './services/firebase'
+
 createServer({
   models: {
     quest: Model,

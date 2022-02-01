@@ -1,10 +1,12 @@
 import { Header } from "../../components/Header/Header";
 
-export function LoginForm() {
+export function Login() {
     return ( 
         <div>
         <Header />,
-        <input type="text"/>
+        <input>E-mail</input>
+        <input>Senha</input>
         </div>
     )
 }
+
