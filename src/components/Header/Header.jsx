@@ -1,5 +1,6 @@
 import styles from "./Header.module.scss";
 // import { ReactComponent as Questty } from "../../assets/logo-image_vetor.svg";
+// import { Link } from 'react-router-dom'
 
 
 const Header = ({onOpenNewQuestForm}) =>{
@@ -13,6 +14,7 @@ const Header = ({onOpenNewQuestForm}) =>{
         >
           Faça uma postagem
         </button>
+        <button>Login</button>
       </nav>
     </header>
   );
