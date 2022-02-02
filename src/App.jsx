@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { NewQuestModal } from "./components/Modal/NewQuestModal"; 
-import Header from "./components/Header/Header"; 
-import "./styles/global.css";
-import { Feed } from "./pages/Feed/Feed";
+
+import { NewQuestModal } from "./components/Modal/NewQuestModal";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Quest } from "./pages/Quest/Quest";
+import "./styles/global.scss";
+
+import Header from "./components/Header/Header";
+
+import { Home } from "./pages/Home/Home";
+import { Feed } from "./pages/Feed/Feed";
+import { Login } from "./pages/Login/Login";
 
 function App() {
   const [isNewQuestOpen, setIsNewQuestOpen] = useState(false);
@@ -18,14 +24,22 @@ function App() {
 
   return (
     <>
-      <Header onOpenNewQuestForm={handleOpenNewQuestModal} />
-      <Feed>
-        <Quest />
-      </Feed>
-      <NewQuestModal
-        isOpen={isNewQuestOpen}
-        onRequestClose={handleCloseNewQuestModal}
-      />
+      <BrowserRouter>
+        <Header onOpenNewQuestForm={handleOpenNewQuestModal} />
+        <NewQuestModal
+          isOpen={isNewQuestOpen}
+          onRequestClose={handleCloseNewQuestModal}
+        />
+        <Routes>
+          <Route path="login" element={<Login />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="feed">
+            <Route path="" element={<Feed />}/>
+            <Route path="tarefa/:id" element={<Quest />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      ;
     </>
   );
 }

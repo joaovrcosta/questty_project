@@ -2,11 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { createServer, Model } from "miragejs";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Quest } from "./pages/Quest/Quest";
 import { QuestsProvider } from "./QuestsContexts";
 
-import './services/firebase'
+// import './services/firebase'
 
 createServer({
   models: {
@@ -51,12 +49,7 @@ createServer({
 ReactDOM.render(
   <QuestsProvider>
     <React.StrictMode>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="tarefa/:id" element={<Quest />} />
-        </Routes>
-      </BrowserRouter>
+      <App />
     </React.StrictMode>
   </QuestsProvider>,
 
