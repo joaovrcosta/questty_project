@@ -7,6 +7,10 @@
         "package-lock.json": true,
         "public": true,
         "yarn.lock" : true,
+        "tsconfig.json": true,
+        ".env": true,
+        ".env.local": true,
+        "react-app-env.d.ts": true,
 	"README.md" : true
     }
 }
