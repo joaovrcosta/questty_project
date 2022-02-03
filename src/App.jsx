@@ -9,7 +9,6 @@ import Header from "./components/Header/Header";
 
 import { Home } from "./pages/Home/Home";
 import { Feed } from "./pages/Feed/Feed";
-import { Login } from "./pages/Login/Login";
 
 function App() {
   const [isNewQuestOpen, setIsNewQuestOpen] = useState(false);
@@ -31,10 +30,9 @@ function App() {
           onRequestClose={handleCloseNewQuestModal}
         />
         <Routes>
-          <Route path="login" element={<Login />}/>
           <Route path="/" element={<Home />} />
           <Route path="feed">
-            <Route path="" element={<Feed />}/>
+            <Route path="" element={<Feed />} />
             <Route path="tarefa/:id" element={<Quest />} />
           </Route>
         </Routes>
