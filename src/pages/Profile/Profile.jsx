@@ -9,8 +9,8 @@ export function Profile() {
      <img src={profileImg} alt="image"/>
      <span className={styles.name}>joaovrcosta</span>
      <Link to="edit"><button className={styles.button}>Editar perfil</button></Link>
-     <p className={styles.createAt}>Ativo pela última vez há 2 dias</p>
-     <p className={styles.createAt}>Entrou em 10 de fevereiro de 2021</p>
+     <p className={styles.createAt}>Ativo pela última vez <strong>há 2 dias</strong></p>
+     <p className={styles.createAt}>Entrou em <strong>10 de fevereiro de 2021</strong></p>
      </div>
  )
 }
