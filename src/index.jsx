@@ -4,8 +4,6 @@ import App from "./App";
 import { createServer, Model } from "miragejs";
 import { QuestsProvider } from "./QuestsContexts";
 
-// import './services/firebase'
-
 createServer({
   models: {
     quest: Model,
@@ -43,6 +41,7 @@ createServer({
 
       return schema.create("quest", data);
     });
+    this.passthrough('https://identitytoolkit.googleapis.com/v1/**')
   },
 });
 

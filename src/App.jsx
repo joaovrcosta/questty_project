@@ -9,6 +9,8 @@ import Header from "./components/Header/Header";
 
 import { Home } from "./pages/Home/Home";
 import { Feed } from "./pages/Feed/Feed";
+import { Login } from "./pages/Login/Login";
+import { SignUp } from "./pages/SignUp/Signup";
 
 function App() {
   const [isNewQuestOpen, setIsNewQuestOpen] = useState(false);
@@ -31,6 +33,8 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="feed">
             <Route path="" element={<Feed />} />
             <Route path="tarefa/:id" element={<Quest />} />
