@@ -11,6 +11,8 @@ import { Home } from "./pages/Home/Home";
 import { Feed } from "./pages/Feed/Feed";
 import { Login } from "./pages/Login/Login";
 import { SignUp } from "./pages/SignUp/Signup";
+import { Profile } from "./pages/Profile/Profile";
+import { EditProfile } from "./pages/EditProfile/EditProfile";
 
 function App() {
   const [isNewQuestOpen, setIsNewQuestOpen] = useState(false);
@@ -33,8 +35,12 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="profile" >
+            <Route path="" element={<Profile />} />
+            <Route path="edit" element={<EditProfile />} />
+          </Route>
           <Route path="feed">
             <Route path="" element={<Feed />} />
             <Route path="tarefa/:id" element={<Quest />} />

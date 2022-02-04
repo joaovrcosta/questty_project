@@ -1,9 +1,9 @@
-.header {
+.container {
     box-shadow: 0px, 1px, 1px rgba(0, 0, 0, .1);
     position: fixed;
     width: 100%;
     z-index: 100;
-    background-color: #f6eab9;
+    background-color: #fff492;
     top: 0px;
     }
     
@@ -21,9 +21,12 @@
 .makequestbutton {
     background-color: #ffdb49;
     border: none;
-    border-radius:8px;
+    border-radius:48px;
     padding: .625rem 1.25rem;
     cursor: pointer;
+    border: 1px solid #000;
+    font-weight:800;
+    font-size:14px;
 }
 
 .makequestbutton:hover {
@@ -32,9 +35,22 @@
 }
 
 .search {
-    background-color: #e3ebf2;
-    border-radius:8px;
+    background-color: #ffffff;
+    border-radius:48px;
     padding: .625rem 1.25rem;
     border: none;
     width: 480px;
+    border: 1px solid #000
+}
+
+.loginButton {
+    background-color: #ffffff;
+    border: none;
+    border-radius:48px;
+    padding: .625rem 1.25rem;
+    cursor: pointer;
+    border: 1px solid #000;
+    font-weight:800;
+    font-size:14px;
+    width: 141px;
 }

@@ -1,20 +1,22 @@
 import styles from "./Header.module.scss";
-// import { ReactComponent as Questty } from "../../assets/logo-image_vetor.svg";
 import { Link } from 'react-router-dom'
 
 
 const Header = ({onOpenNewQuestForm}) =>{
   return (
-    <header className={styles.header}>
+    <header className={styles.container}>
       <nav className={`${styles.nav} container`}>
+        <Link to="/"><button>Home</button></Link>
         <input className={styles.search} placeholder="Digite o nome do post"></input>
         <button
           className={styles.makequestbutton}
           onClick={onOpenNewQuestForm} //<<<Botão que abre modal
         >
-          Faça uma postagem
+          FAÇA SUA PERGUNTA
         </button>
-        <Link to="login"><button>Login</button></Link>
+        <Link 
+        to="login">
+          <button className={styles.loginButton} >ENTRAR</button></Link>
       </nav>
     </header>
   );

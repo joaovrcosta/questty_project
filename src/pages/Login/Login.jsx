@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebas
 import { auth } from '../../services/firebase-config'
 import styles from "./Login.module.scss";
 import { useState } from "react";
+import { Link } from 'react-router-dom'
 
 
 export function Login() {
@@ -46,6 +47,7 @@ export function Login() {
     <label >Senha</label>
     <input  onChange={(event) => setLoginPassword(event.target.value)} placeholder="Digite sua senha" type="password" className={styles.input} />
     <button onClick={login} className={styles.button}>Entrar</button>
+    <Link to="/signup"><p className={styles.register}>Registre-se</p></Link>
     <h4>User current logged:</h4>
     {user?.email}
     <button onClick={logout}>Logout</button>
