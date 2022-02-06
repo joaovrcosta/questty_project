@@ -1,9 +1,9 @@
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../contexts/UserContext";
+import { useUserContext } from "../../contexts/UserContext";
 
 const Header = ({ onOpenNewQuestForm }) => {
-  const {currentUser} = useAuth()
+  const { user, logoutUser } = useUserContext();
 
   return (
     <header className={styles.container}>
@@ -24,7 +24,8 @@ const Header = ({ onOpenNewQuestForm }) => {
         <Link to="login">
           <button className={styles.loginButton}>ENTRAR</button>
         </Link>
-        <p>User:{currentUser}</p>
+        <Link to="profile"><p>{user?.displayName}</p></Link>
+        <button onClick={logoutUser}>Log out</button>
       </nav>
     </header>
   );
