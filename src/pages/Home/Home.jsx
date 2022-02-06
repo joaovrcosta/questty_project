@@ -31,27 +31,39 @@ export function Home() {
             Como funciona nossa plataforma?
           </p>
 
-          <div className={`${styles.homeStepsHowTo} ${styles.homeStepsHowTo__1}`}>
+          <div
+            className={`${styles.homeStepsHowTo} ${styles.homeStepsHowTo__1}`}
+          >
             <p className={styles.homeStepsHowToSubTitle}>Primeiros passos</p>
-            <p className={styles.homeStepsHowToTitle}>1º Pergunte ou Pesquise</p>
-            <p className={styles.homeStepsHowToText}>
-              As vezes ficamos com dúvidas sobre um assunto, então essa é a hora
-              de pesquisar
+            <p className={styles.homeStepsHowToTitle}>
+              1º Pergunte ou Pesquise
             </p>
-                        <div className={styles.homeStepsHowToCtaContainer}>
-                <button className={styles.homeStepsHowToCtaContainerButton}>Pergunte</button>
-            </div>
-          </div>
-
-          <div className={`${styles.homeStepsHowTo} ${styles.homeStepsHowTo__2}`}>
-            <p className={styles.homeStepsHowToSubTitle}>Segundo passo</p>
-            <p className={styles.homeStepsHowToTitle}>Receba explicações passo a passo</p>
             <p className={styles.homeStepsHowToText}>
               As vezes ficamos com dúvidas sobre um assunto, então essa é a hora
               de pesquisar
             </p>
             <div className={styles.homeStepsHowToCtaContainer}>
-                <button className={styles.homeStepsHowToCtaContainerButton}>Pergunte</button>
+              <button className={styles.homeStepsHowToCtaContainerButton}>
+                Pergunte
+              </button>
+            </div>
+          </div>
+
+          <div
+            className={`${styles.homeStepsHowTo} ${styles.homeStepsHowTo__2}`}
+          >
+            <p className={styles.homeStepsHowToSubTitle}>Segundo passo</p>
+            <p className={styles.homeStepsHowToTitle}>
+              Receba explicações passo a passo
+            </p>
+            <p className={styles.homeStepsHowToText}>
+              As vezes ficamos com dúvidas sobre um assunto, então essa é a hora
+              de pesquisar
+            </p>
+            <div className={styles.homeStepsHowToCtaContainer}>
+              <button className={styles.homeStepsHowToCtaContainerButton}>
+                Pergunte
+              </button>
             </div>
           </div>
         </section>
