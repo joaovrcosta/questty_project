@@ -18,7 +18,6 @@ const SignUp = () => {
     const password = psdRef.current.value;
     if (email && password && name) registerUser(email, password, name);
     navigate('/feed');
-    document.location.reload(true);
   };
 
 
