@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styles from './Feed.module.scss'
-import { QuestsContext } from '../../QuestsContexts'
+import { QuestsContext } from '../../contexts/QuestsContexts'
 import { Link } from 'react-router-dom';
 
 export function Feed() {

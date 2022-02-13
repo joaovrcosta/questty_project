@@ -23,7 +23,7 @@ const SignUp = () => {
 
   return (
     <div className="form">
-      <h2> New User</h2>
+      <h2>Começe agora mesmo</h2>
       <form onSubmit={onSubmit}>
         <input placeholder="Email" type="email" ref={emailRef} />
         <input placeholder="Name" type="name" ref={nameRef} />
