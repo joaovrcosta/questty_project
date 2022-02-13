@@ -16,6 +16,7 @@ export const useUserContext = () => {
 };
 
 export const UserStorage = ({ children }) => {
+  const [login, setLogin] = useState(false)
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");

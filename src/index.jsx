@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { createServer, Model } from "miragejs";
-import { QuestsProvider } from "./QuestsContexts";
+import { QuestsProvider } from "./contexts/QuestsContexts";
 
 createServer({
   models: {

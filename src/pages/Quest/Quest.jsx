@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import styles from '../Quest/Quest.module.scss'
-import { QuestsContext } from '../../QuestsContexts'
+import { QuestsContext } from '../../contexts/QuestsContexts'
 import { useParams } from 'react-router-dom';
 
 
