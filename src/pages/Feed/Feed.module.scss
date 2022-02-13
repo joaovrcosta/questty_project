@@ -1,57 +1,152 @@
-.container {
-    max-width: 692px;
-    margin-left: auto;
-    margin-right: auto;
-}
+// .container {
+//   max-width: 692px;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
-.torespond {
- background-color: #fff; 
- border: 2px solid #000;
- color: #000;
- fill: #000;
- border-radius: 1rem;
- height: 2rem;
- padding: 0 1rem;
- font-size: 12px;
- line-height: 12px;
- cursor: pointer;
- margin-left: 556px;
-}
+// .torespond {
+//   background-color: #fff;
+//   border: 2px solid #10162F;
+//   color: #10162F;
+//   fill: #10162F;
+//   border-radius: 1rem;
+//   height: 2rem;
+//   padding: 0 1rem;
+//   font-size: 12px;
+//   line-height: 12px;
+//   cursor: pointer;
+//   margin-left: 556px;
+// }
 
-.torespond:hover {
-   background-color: rgba(158, 158, 158, 0.137);
-}
+// .torespond:hover {
+//   background-color: rgba(158, 158, 158, 0.137);
+// }
 
-.text {
-    font-size: 18px;
-    font-family: Helvetica, Arial, sans-serif;
-    line-height: 24px;
-    font-weight: 400;
-    margin-top: 20px;
-}
+// .text {
+//   font-size: 18px;
+//   font-family: Helvetica, Arial, sans-serif;
+//   line-height: 24px;
+//   font-weight: 400;
+//   margin-top: 20px;
+// }
 
-.category {
-    font-size: 15px;
-}
+// .category {
+//   font-size: 15px;
+// }
 
-.questcontainer {
-    padding: 24px;
-    border-bottom: 2px solid #ebf2f7;
-}
+// .questcontainer {
+//   padding: 24px;
+//   border-bottom: 2px solid #ebf2f7;
+// }
 
-.tweet {
-    background-color: rgb(250, 255, 175);
-    margin-top: 1rem;
-    justify-content: center;
+// .tweet {
+//   background-color: rgb(250, 255, 175);
+//   margin-top: 1rem;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .response {
+//   width: 166px;
+//   height: 41px;
+//   background-color: #ffffff;
+//   border-radius: 48px;
+//   border: 2px solid #10162F;
+//   font-family: Poppins;
+//   cursor: pointer;
+// }
+
+.feedContainer {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  .questionContainer {
+    background: #fee795;
+    border: 1px solid #10162f;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    display: flex;
     align-items: center;
-}
+    justify-content: space-between;
 
-.response {
-    width: 166px;
-    height: 41px;
-    background-color: #ffffff;
-    border-radius:48px;
-    border: 2px solid #000;
-    font-family: Poppins;
-    cursor: pointer;
+    &Text {
+      margin-right: 1rem;
+    }
+
+    &Response {
+      background: #32ca25;
+      border: 1px solid #10162f;
+      color: #fff;
+      border-radius: 10px;
+      padding: 0.5rem;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+  }
+  &QuestionButton {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(90deg, #79dfff 50%, #9a1bff);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1rem;
+    border: 1px solid #10162f;
+    margin-bottom: 1.5rem;
+
+    button {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: #24caff;
+      border: 1px solid #10162f;
+      padding: 1rem;
+      min-width: 10rem;
+      width: 50%;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+    }
+  }
+
+  &FilterButton {
+    background: #24caff;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #10162f;
+    border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
+
+    button {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+
+  &FetchMore{
+    background: #A0DDFF;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid #10162f;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
+        display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    button {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+    }
+  }
 }

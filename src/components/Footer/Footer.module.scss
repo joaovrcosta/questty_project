@@ -1,5 +1,5 @@
 .footer{
-    border-top: 1px solid #000;
+    border-top: 1px solid #10162F;
     padding: 2.5rem;
 
     &Row{
@@ -11,7 +11,7 @@
             flex-direction: column;
 
             &Title{
-                color: #000;
+                color: #10162F;
                 font-weight: 700;
                 font-size: 1rem;
                 text-transform: uppercase;
@@ -20,7 +20,7 @@
 
             a{
                 text-decoration: none;
-                color: #000;
+                color: #10162F;
                 margin-bottom: 1rem;
             }
         }
