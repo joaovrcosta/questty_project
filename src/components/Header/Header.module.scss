@@ -1,56 +1,41 @@
-.container {
-    box-shadow: 0px, 1px, 1px rgba(0, 0, 0, .1);
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    background-color: #FDFFF4;;
-    top: 0px;
-    }
-    
-.nav{
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background-color: #fdfff4;
+  top: 0;
+
+  &Container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 4rem;
-}
+    padding: 1rem 1.5rem;
 
-.logo {
-    padding: 0.5rem 0;
-}
+    &Logo {
+      flex: 0.2;
+      min-width: 4.5rem;
+      padding: 1rem 0;
+    }
 
-.makequestbutton {
-    background-color: #ffdb49;
-    border: none;
-    border-radius:48px;
-    padding: .625rem 1.25rem;
-    cursor: pointer;
-    border: 1px solid #10162F;
-    font-weight:800;
-    font-size:14px;
-}
-
-.makequestbutton:hover {
-    background-color:#ffd118;
-    transition:0.3s
-}
-
-.search {
-    background-color: #ffffff;
-    border-radius:48px;
-    padding: .625rem 1.25rem;
-    border: none;
-    width: 480px;
-    border: 1px solid #10162F
-}
-
-.loginButton {
-    background-color: #ffffff;
-    border: none;
-    border-radius:48px;
-    padding: .625rem 1.25rem;
-    cursor: pointer;
-    border: 1px solid #10162F;
-    font-weight:800;
-    font-size:14px;
-    width: 141px;
+    &Search {
+      display: flex;
+      justify-content: space-between;
+      flex: 0.6;
+      margin: 0 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 2.875rem;
+      border: 1px solid #10162f;
+      background: #fff;
+      &Input {
+        border: none;
+        width: 80%;
+        outline: none;
+        &::placeholder {
+          color: #10162f;
+        }
+      }
+    }
+    &Image {
+      flex: 0.2;
+    }
+  }
 }
