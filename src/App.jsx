@@ -45,14 +45,14 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
-              <Route path="profile">
-                <Route path="" element={<Profile />} />
-                <Route path="edit" element={<EditProfile />} />
-              </Route>
-              <Route path="feed">
-                <Route path="" element={<Feed />} />
-                <Route path="tarefa/:id" element={<Quest />} />
-              </Route>
+            <Route path="profile">
+              <Route path="" element={<Profile />} />
+              <Route path="edit" element={<EditProfile />} />
+            </Route>
+            <Route path="feed">
+              <Route path="" element={<Feed />} />
+              <Route path="tarefa/:id" element={<Quest />} />
+            </Route>
           </Routes>
         </UserStorage>
       </BrowserRouter>
