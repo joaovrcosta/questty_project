@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
-import styles from './ErrorPage.module.scss'
+import styles from "./ErrorPage.module.scss";
 
 export function ErrorPage() {
-    return(
-        <div className={styles.container}>
-            <h1 className={styles.errorText}> <em>#</em>404 </h1>
-            <h4 className={styles.notFound}>Não encontramos esta página.</h4>
-            <p className={styles.backTo}>voltar para a <Link to="/">página principal</Link></p>
-        </div>
-    )
+  return (
+    <div className={styles.errorPageContainer}>
+      <h1 className={styles.errorPageContainerTextTitle}>#404</h1>
+      <p className={styles.errorPageContainerTextDescription}>
+        Parece que não existe nada <br/> nessas águas...🌊
+      </p>
+      <p className={styles.errorPageContainerTextGoHome}>
+        Voltar para a <Link to="/">terra firme</Link>.
+      </p>
+    </div>
+  );
 }
