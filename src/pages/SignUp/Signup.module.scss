@@ -1,18 +1,45 @@
-.button {
-    border: 1px solid #10162F;
-    width: 142px;
-    height:46px;
-    padding: 5px 1px 5px 1px;
-    border-radius: 10px;
-    background-color: #0EBBE1;
-    color: #fff;
-    cursor: pointer;
-}
+.registerContainer {
+  padding-top: 1rem;
+  &Title {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
 
-.input {
-    width: 374px;
-    border: 1px solid #10162F;
-    height: 52.5px;
-    font-size: 16px;
-    padding: 5px 14px 5px 14px
+  &Form {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    min-width: 17.5rem;
+    margin: 0 auto;
+
+    &Input {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border: 1px solid #10162f;
+
+      &::placeholder {
+        color: #10162f91;
+      }
+    }
+
+    &ForgotButton {
+      color: #45a6ff;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    &SubmitButton {
+      background: #45a6ff;
+      color: #fff;
+      border-radius: 0.625rem;
+      border: 1px solid #10162f;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.75rem 0;
+      text-align: center;
+    }
+  }
 }
