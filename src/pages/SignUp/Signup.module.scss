@@ -42,4 +42,37 @@
       text-align: center;
     }
   }
+  &Terms{
+    margin-top: 2.5rem;
+    padding: 0 1.5rem;
+    &Text{
+      text-align: center;
+      font-size: 1rem;
+
+      a{
+        color: #45a6ff;
+        text-decoration: underline;
+      }
+    }
+  }
+  &Social{
+    width: 75%;
+    margin: 2rem auto 0;
+    &Title{
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    &RowIcons{
+      display: flex;
+      &Image{
+        padding: 0.75rem;
+        border: 1px solid #10162f;
+        border-radius: 50%;
+
+        &:first-child{
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
 }
