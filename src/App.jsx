@@ -16,6 +16,7 @@ import { EditProfile } from "./pages/EditProfile/EditProfile";
 import { UserStorage } from "./contexts/UserContext";
 import { useUserContext } from "./contexts/UserContext";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
+import { EmailConfirmation } from "./pages/EmailConfirmation/EmailConfirmation";
 // import ProtectRoutes from "./helper/ProtectedRoutes";
 // import { Footer } from "./components/Footer/Footer";
 
@@ -45,6 +46,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
+            <Route path="emailconfirmation" element={<EmailConfirmation />} />
             <Route path="profile">
               <Route path="" element={<Profile />} />
               <Route path="edit" element={<EditProfile />} />
