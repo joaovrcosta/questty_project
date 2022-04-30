@@ -6,7 +6,7 @@ import { Quest } from "./pages/Quest/Quest";
 import "./styles/global.scss";
 
 import Header from "./components/Header/Header";
-
+import { Test } from "./pages/TestApi/Test";
 import { Home } from "./pages/Home/Home";
 import { Feed } from "./pages/Feed/Feed";
 import Login from "./pages/Login/Login";
@@ -45,6 +45,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<ErrorPage />} />
             <Route path="login" element={<Login />} />
+            <Route path="test" element={<Test />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="emailconfirmation" element={<EmailConfirmation />} />
             <Route path="profile">
