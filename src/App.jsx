@@ -11,6 +11,7 @@ import { Home } from "./pages/Home/Home";
 import { Feed } from "./pages/Feed/Feed";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/Signup";
+import SignUp2 from "./pages/SignUp2/Signup2";
 import { Profile } from "./pages/Profile/Profile";
 import { EditProfile } from "./pages/EditProfile/EditProfile";
 import { UserStorage } from "./contexts/UserContext";
@@ -47,6 +48,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="test" element={<Test />} />
             <Route path="signup" element={<SignUp />} />
+            <Route path="signup2" element={<SignUp2 />} />
             <Route path="quest" element={<Quest />} />
             <Route path="emailconfirmation" element={<EmailConfirmation />} />
             <Route path="profile">
