@@ -1,13 +1,11 @@
 import styles from "./Header.module.scss";
 import { Link } from "react-router-dom";
-import { useUserContext } from "../../contexts/UserContext";
+// import { useUserContext } from "../../contexts/UserContext";
 import questtyLogo from "../../assets/images/questty-logo.svg";
 import avatar03 from "../../assets/images/avatar-03.svg";
 import lupaIcon from "../../assets/images/lupa-icon.svg";
 
-const Header = ({ onOpenNewQuestForm }) => {
-  const { user, logoutUser } = useUserContext();
-
+const Header = ({ onOpenNewQuestionForm }) => {
   return (
     <header className={styles.header}>
       <nav className={styles.headerContainer}>
@@ -36,6 +34,7 @@ const Header = ({ onOpenNewQuestForm }) => {
             alt=""
           />
         </Link>
+        <button type="button" onClick={onOpenNewQuestionForm}>Perguntar</button>
       </nav>
     </header>
   );
