@@ -2,7 +2,6 @@ import { useState } from "react";
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Quest } from "./pages/Quest/Quest";
 import "./styles/global.scss";
 
 import Header from "./components/Header/Header";
@@ -17,6 +16,7 @@ import { EditProfile } from "./pages/EditProfile/EditProfile";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { EmailConfirmation } from "./pages/EmailConfirmation/EmailConfirmation";
 import { NewQuestionModal } from "./components/QuestionModal/QuestionModal";
+import { Question } from "./pages/Question/Question";
 // import ProtectRoutes from "./helper/ProtectedRoutes";
 // import { Footer } from "./components/Footer/Footer";
 
@@ -47,7 +47,7 @@ function App() {
             <Route path="test" element={<Test />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="signup-2" element={<SignUp2 />} />
-            <Route path="question" element={<Quest />} />
+            <Route path="question" element={<Question />} />
             <Route path="emailconfirmation" element={<EmailConfirmation />} />
             <Route path="profile">
               <Route path="" element={<Profile />} />
@@ -55,7 +55,7 @@ function App() {
             </Route>
             <Route path="feed">
               <Route path="" element={<Feed />} />
-              <Route path="tarefa/:id" element={<Quest />} />
+              <Route path="tarefa/:id" element={<Question />} />
             </Route>
           </Routes>
       </BrowserRouter>

@@ -34,7 +34,7 @@ const Header = ({ onOpenNewQuestionForm }) => {
             alt=""
           />
         </Link>
-        <button type="button" onClick={onOpenNewQuestionForm}>Perguntar</button>
+        <button type="button" onClick={onOpenNewQuestionForm}>Postar</button>
       </nav>
     </header>
   );

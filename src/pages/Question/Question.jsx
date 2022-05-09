@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import styles from "../Quest/Quest.module.scss";
+import styles from "../Question/Question.module.scss";
 import avatar18 from "../../assets/images/avatar-18.svg";
 import dialogIcon from "../../assets/images/dialog-icon.svg";
 import plusIcon from "../../assets/images/plus-icon.svg";
@@ -9,7 +9,7 @@ import starRated from "../../assets/images/star-rated.svg";
 import starUnrated from "../../assets/images/star-unrated.svg";
 
 
-export function Quest() {
+export function Question() {
   // const { quests } = useContext(QuestsContext);
 
   // const { id } = useParams()
