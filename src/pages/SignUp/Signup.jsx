@@ -4,11 +4,11 @@ import googleIcon from "../../assets/images/google-icon.svg";
 import facebookIcon from "../../assets/images/facebook-icon.svg";
 import axios from "axios";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const registerUser = (e) => {
     e.preventDefault();
@@ -17,7 +17,10 @@ const SignUp = () => {
       .get(`http://localhost:3333/students/list`, {
         params: { email },
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        // Em caso de sucesso faça o navigate
+        navigate("/signup-2", { replace: true });
+      })
       .catch((error) => console.log(error.message));
   };
 

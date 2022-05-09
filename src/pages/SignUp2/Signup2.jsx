@@ -1,25 +1,30 @@
-import React, { useRef } from "react";
-import { useUserContext } from "../../contexts/UserContext";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styles from "./Signup2.module.scss";
 import { Link } from "react-router-dom";
-import googleIcon from "../../assets/images/google-icon.svg";
-import facebookIcon from "../../assets/images/facebook-icon.svg";
 
 const SignUp2 = () => {
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   let navigate = useNavigate();
-  const emailRef = useRef();
-  const nameRef = useRef();
-  const psdRef = useRef();
-  const { registerUser } = useUserContext();
 
-  const onSubmit = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const email = emailRef.current.value;
-    const name = nameRef.current.value;
-    const password = psdRef.current.value;
-    if (email && password && name) registerUser(email, password, name);
-    navigate("/feed");
+
+    axios
+      .post("http://localhost:3333/students", {
+        email,
+        username,
+        password,
+      })
+      .then((res) => {
+        // Em caso de sucesso faça o navigate
+        navigate("/feed", { replace: true });
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -28,12 +33,21 @@ const SignUp2 = () => {
         <p className={styles.registerContainerSubtitle}>
           Vamos completar seu cadastro:
         </p>
-        <form className={styles.registerContainerForm} onSubmit={onSubmit}>
+        <form className={styles.registerContainerForm} onSubmit={handleSubmit}>
           <input
             className={styles.registerContainerFormInput}
             placeholder="Digite seu e-mail"
             type="email"
-            ref={emailRef}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+
+          <input
+            className={styles.registerContainerFormInput}
+            placeholder="Username"
+            type="text"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
           />
 
           <div className={styles.registerContainerFormRowDivided}>
@@ -76,7 +90,6 @@ const SignUp2 = () => {
               className={styles.registerContainerFormRowDividedDate}
               placeholder="Nascimento"
               type="text"
-              // ref={emailRef}
             />
           </div>
 
@@ -84,7 +97,8 @@ const SignUp2 = () => {
             className={styles.registerContainerFormInput}
             placeholder="Digite sua senha"
             type="password"
-            // ref={emailRef}
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
 
           <button
@@ -110,7 +124,7 @@ const SignUp2 = () => {
 
         <div className={styles.registerContainerComeback}>
           <button className={styles.registerContainerComebackButton}>
-            Voltar
+            <Link to="/signup">Voltar</Link>
           </button>
         </div>
       </div>

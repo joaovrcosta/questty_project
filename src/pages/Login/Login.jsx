@@ -1,10 +1,12 @@
 import { useState } from "react";
 import styles from "./Login.module.scss";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  let navigate = useNavigate();
 
 
   const handleSubmit = (e) => {
@@ -15,7 +17,10 @@ const Signin = () => {
         email,
         password,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        // Em caso de sucesso faça o navigate
+        navigate("/feed", { replace: true });
+      })
       .catch((err) => console.log(err));
   };
 

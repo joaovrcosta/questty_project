@@ -1,3 +1,7 @@
+import axios from "axios";
+// import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 import Modal from "react-modal";
 // import styles from "./QuestionModal.module.scss"
 
@@ -8,6 +12,26 @@ const customStyle = {
 };
 
 export function NewQuestionModal({ isOpen, onRequestClose }) {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [category_id, setCategoryId] = useState("");
+  const [author_id, setAuthorId] = useState("");
+  // let navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("http://localhost:3333/questions", {
+        title,
+        content,
+        category_id,
+        author_id,
+      })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <Modal
@@ -15,11 +39,39 @@ export function NewQuestionModal({ isOpen, onRequestClose }) {
         onRequestClose={onRequestClose}
         style={customStyle}
       >
-        <form action="submit">
-          <input placeholder="Digite um titulo" type="text" />
-          <input placeholder="Digite o conteudo" type="text" />
-          <select id="matéria" name="matéria">
-            <option selected disabled hidden value="">Escolha a matéria</option>
+        <form action="submit" onSubmit={handleSubmit}>
+          <input
+            placeholder="Titulo da pergunta"
+            type="text"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+          />
+
+          <input
+            placeholder="Descreva sua dúvida"
+            type="text"
+            value={content}
+            onChange={(event) => setContent(event.target.value)}
+          />
+
+          <input
+            placeholder="Categoria"
+            type="text"
+            value={category_id}
+            onChange={(event) => setCategoryId(event.target.value)}
+          />
+
+          <input
+            placeholder="Autor"
+            type="text"
+            value={author_id}
+            onChange={(event) => setAuthorId(event.target.value)}
+          />
+
+          {/* <select id="matéria" name="matéria">
+            <option selected disabled hidden value="">
+              Escolha a matéria
+            </option>
             <option value="Quimica">Quimica</option>
             <option value="Artes">Artes</option>
             <option value="Português">Português</option>
@@ -42,8 +94,8 @@ export function NewQuestionModal({ isOpen, onRequestClose }) {
             <option value="Logica">Logica</option>
             <option value="Espanhol">Espanhol</option>
             <option value="Musica">Musica</option>
-          </select>
-          <button>Faça sua pergunta</button>
+          </select> */}
+          <button type="submit">Faça sua pergunta</button>
         </form>
       </Modal>
     </div>

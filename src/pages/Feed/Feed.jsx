@@ -25,28 +25,6 @@ export function Feed() {
         <div className={styles.feedContainerFetchMore}>
           <button>+6 Perguntas</button>
         </div>
-
-        {quests.map((quest) => {
-          return (
-            <div className={styles.questionContainer} key={quest.id}>
-              <div className={styles.questionContainerText}>
-                <p>{quest.title}</p>
-                <p>{quest.text}</p>
-                <span>{quest.category}</span>
-                <span>
-                  {new Intl.DateTimeFormat("pt-BR").format(
-                    new Date(quest.createdAt)
-                  )}
-                </span>
-              </div>
-              <Link to={"tarefa/" + quest.id}>
-                <button className={styles.questionContainerResponse}>
-                  Responder
-                </button>
-              </Link>
-            </div>
-          );
-        })}
       </div>
       <Footer />
     </>
