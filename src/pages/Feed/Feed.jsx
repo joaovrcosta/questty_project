@@ -1,11 +1,18 @@
-import { useContext } from "react";
 import styles from "./Feed.module.scss";
-import { QuestsContext } from "../../contexts/QuestsContexts";
-import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 export function Feed() {
-  const { quests } = useContext(QuestsContext);
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3333/questions/ask").then((res) => {
+      setQuestions(res.data);
+    });
+  }, []);
 
   return (
     <>
@@ -26,6 +33,29 @@ export function Feed() {
           <button>+6 Perguntas</button>
         </div>
       </div>
+
+      <ul>
+        {questions.map((repo) => {
+          return (
+            <div className={styles.questionContainer}>
+              <li className={styles.questionContainerText} key={repo.title}>
+                <strong>{repo.title}</strong>
+                <p>{repo.content}</p>
+                <span>
+                  {new Intl.DateTimeFormat("pt-BR").format(
+                    new Date(repo.created_at)
+                  )}
+                </span>
+              </li>
+              <Link to={"tarefa/" + repo.id}>
+                <button className={styles.questionContainerResponse}>
+                  Responder
+                </button>
+              </Link>
+            </div>
+          );
+        })}
+      </ul>
       <Footer />
     </>
   );

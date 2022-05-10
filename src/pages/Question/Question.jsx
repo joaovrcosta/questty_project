@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import styles from "../Question/Question.module.scss";
 import avatar18 from "../../assets/images/avatar-18.svg";
 import dialogIcon from "../../assets/images/dialog-icon.svg";
