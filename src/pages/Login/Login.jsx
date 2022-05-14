@@ -1,30 +1,21 @@
 import { useState } from "react";
 import styles from "./Login.module.scss";
-import axios from 'axios'
-import { useNavigate } from "react-router-dom";
+import { useContextAuth } from "../../providers/AuthContext";
 
 const Signin = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  let navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const { handleUserLogin } = useContextAuth()
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios
-      .post("http://localhost:3333/sessions", {
-        email,
-        password,
-      })
-      .then((res) => {
-        console.log(res)
-        // Em caso de sucesso faça o navigate
-        navigate("/feed", { replace: true });
-      }).catch((err) => console.log(err));
+    handleUserLogin(email, password)
+    
   };
 
-  return (                     
+  return (
     <div className={styles.loginContainer}>
       <p className={styles.loginContainerTitle}>Entre com a sua conta:</p>
       <form className={styles.loginContainerForm} onSubmit={handleSubmit}>

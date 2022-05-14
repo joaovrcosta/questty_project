@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/global.scss";
 
@@ -17,12 +16,12 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { EmailConfirmation } from "./pages/EmailConfirmation/EmailConfirmation";
 import { NewQuestionModal } from "./components/QuestionModal/QuestionModal";
 import { Question } from "./pages/Question/Question";
-import { UserStorage } from './contexts/userContext'
 // import ProtectRoutes from "./helper/ProtectedRoutes";
 // import { Footer } from "./components/Footer/Footer";
+// import { AuthProvider } from "./contexts/AuthContext";
 
 function App() {
-  const [isNewQuestionModalOpen , setIsNewQuestionModalOpen] = useState()
+  const [isNewQuestionModalOpen, setIsNewQuestionModalOpen] = useState();
 
   function handleOpenNewQuestionModal() {
     setIsNewQuestionModalOpen(true);
@@ -34,33 +33,29 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-      <UserStorage>
-          <Header onOpenNewQuestionForm={handleOpenNewQuestionModal} />
-          <NewQuestionModal
-            isOpen={isNewQuestionModalOpen}
-            onRequestClose={handleCloseNewQuestionModal}
-          />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<ErrorPage />} />
-            <Route path="login" element={<Login />} />
-            <Route path="test" element={<Test />} />
-            <Route path="signup" element={<SignUp />} />
-            <Route path="signup-2" element={<SignUp2 />} />
-            <Route path="question" element={<Question />} />
-            <Route path="emailconfirmation" element={<EmailConfirmation />} />
-            <Route path="profile">
-              <Route path="" element={<Profile />} />
-              <Route path="edit" element={<EditProfile />} />
-            </Route>
-            <Route path="feed">
-              <Route path="" element={<Feed />} />
-              <Route path="tarefa/:id" element={<Question />} />
-            </Route>
-          </Routes>
-          </UserStorage>
-      </BrowserRouter>
+        <Header onOpenNewQuestionForm={handleOpenNewQuestionModal} />
+        <NewQuestionModal
+          isOpen={isNewQuestionModalOpen}
+          onRequestClose={handleCloseNewQuestionModal}
+        />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<ErrorPage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="test" element={<Test />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="signup-2" element={<SignUp2 />} />
+          <Route path="question" element={<Question />} />
+          <Route path="emailconfirmation" element={<EmailConfirmation />} />
+          <Route path="profile">
+            <Route path="" element={<Profile />} />
+            <Route path="edit" element={<EditProfile />} />
+          </Route>
+          <Route path="feed">
+            <Route path="" element={<Feed />} />
+            <Route path="tarefa/:id" element={<Question />} />
+          </Route>
+        </Routes>
     </>
   );
 }

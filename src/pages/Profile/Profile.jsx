@@ -4,9 +4,12 @@ import yellowStar from "../../assets/images/yellow-star.svg";
 import purpleStar from "../../assets/images/purple-star.svg";
 import avatar03 from "../../assets/images/avatar-03.svg";
 import rightArrow from "../../assets/images/right-arrow.svg";
+import { useContextAuth } from "../../providers/AuthContext";
 
 export function Profile() {
-  const { user } = useUserContext();
+  const { userData } = useContextAuth();
+
+  console.log(userData);
   return (
     <main className={styles.profileContainer}>
       <div className={styles.profileContainerSectionImage}>
@@ -28,7 +31,7 @@ export function Profile() {
       <div className={styles.profileContainerSectionInfo}>
         <div className={styles.profileContainerSectionInfoName}>
           <p className={styles.profileContainerSectionInfoNameText}>
-            {user?.displayName}
+            {userData?.username}
           </p>
         </div>
 
@@ -64,11 +67,10 @@ export function Profile() {
 
         <div className={styles.profileContainerSectionInfoDate}>
           <p className={styles.profileContainerSectionInfoDateLastSeen}>
-            Ativo pela última vez em{" "}
-            <strong>{user?.metadata?.lastSignInTime}</strong>
+            Ativo pela última vez em <strong></strong>
           </p>
           <p className={styles.profileContainerSectionInfoDateSignedIn}>
-            Entrou em <strong>{user?.metadata?.creationTime}</strong>
+            Entrou em <strong>{userData?.created_at}</strong>
           </p>
         </div>
       </div>
@@ -105,9 +107,7 @@ export function Profile() {
                   className={
                     styles.profileContainerLastAnswersCardLinkHeaderNicknameText
                   }
-                >
-                  {user?.displayName}
-                </p>
+                >{userData?.username}</p>
               </div>
 
               <div
@@ -141,7 +141,13 @@ export function Profile() {
                   deparar com a arte digital , ela esta por todo canto…
                 </p>
 
-                <img src={rightArrow} alt="" className={styles.profileContainerLastAnswersCardLinkContentContainerArrow} />
+                <img
+                  src={rightArrow}
+                  alt=""
+                  className={
+                    styles.profileContainerLastAnswersCardLinkContentContainerArrow
+                  }
+                />
               </div>
             </div>
           </Link>
