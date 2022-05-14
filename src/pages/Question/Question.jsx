@@ -6,13 +6,29 @@ import noAnswers from "../../assets/images/no-answers.svg";
 import starLike from "../../assets/images/star-like-icon.svg";
 import starRated from "../../assets/images/star-rated.svg";
 import starUnrated from "../../assets/images/star-unrated.svg";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export function Question() {
-  // const { quests } = useContext(QuestsContext);
+  const [question, setQuestion] = useState();
 
-  // const { id } = useParams()
-  // const quest = quests.find(item => item.id === id)
+  // useEffect(() => {
+  //   axios.get("http://localhost:3333/questions/ask")
+  //   .then((res) => {setQuestion(res.id);
+  //   });
+  // }, []);]
+
+  let { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3333/questions/list?id=${id}`)
+      .then((response) => setQuestion(response.data))
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
 
   return (
     <main className={styles.questContainer}>
@@ -30,21 +46,15 @@ export function Question() {
       <div className={styles.questContainerQuestion}>
         <div className={styles.questContainerQuestionPreview}>
           <h1 className={styles.questContainerQuestionPreviewText}>
-            Durante os séculos XVI e XVII, um dos temas mais debatidos pelos
-            pensadores da Europa ocidental sobre a política era o conceito de
-            Estado. O bispo francês Jacques Bossuet escreveu, em 1709, a obra
-            “Política tirada das palavras da sagrada escritura”, em que afirma:
+            {question && question[0]?.title}
           </h1>
         </div>
 
         <div className={styles.questContainerQuestionRemaining}>
           <h2 className={styles.questContainerQuestionRemainingText}>
-            “Todo o poder vem de Deus. Os governantes, pois, agem como ministros
-            de Deus e seus representantes na terra. Consequentemente, o trono
-            real não é o trono de um homem, mas o trono do próprio Deus.”
+            {question && question[0]?.content}
             <br />
-            <br /> A partir da citação acima e de e seus conhecimentos sobre os
-            teóricos do absolutismo, assinale a alternativa correta:
+            <br />
           </h2>
         </div>
 
@@ -129,7 +139,8 @@ export function Question() {
                   <img src={starRated} alt="" />
                   <img src={starRated} alt="" />
                   <img src={starUnrated} alt="" />
-                  4,2</button>
+                  4,2
+                </button>
               </div>
             </div>
           </div>

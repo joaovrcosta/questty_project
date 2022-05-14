@@ -18,13 +18,13 @@ const Signin = () => {
         password,
       })
       .then((res) => {
+        console.log(res)
         // Em caso de sucesso faça o navigate
         navigate("/feed", { replace: true });
-      })
-      .catch((err) => console.log(err));
+      }).catch((err) => console.log(err));
   };
 
-  return (
+  return (                     
     <div className={styles.loginContainer}>
       <p className={styles.loginContainerTitle}>Entre com a sua conta:</p>
       <form className={styles.loginContainerForm} onSubmit={handleSubmit}>

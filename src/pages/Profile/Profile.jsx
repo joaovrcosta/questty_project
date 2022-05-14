@@ -1,6 +1,5 @@
 import styles from "./Profile.module.scss";
 import { Link } from "react-router-dom";
-import { useUserContext } from "../../contexts/UserContext";
 import yellowStar from "../../assets/images/yellow-star.svg";
 import purpleStar from "../../assets/images/purple-star.svg";
 import avatar03 from "../../assets/images/avatar-03.svg";

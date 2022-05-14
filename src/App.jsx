@@ -17,11 +17,11 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { EmailConfirmation } from "./pages/EmailConfirmation/EmailConfirmation";
 import { NewQuestionModal } from "./components/QuestionModal/QuestionModal";
 import { Question } from "./pages/Question/Question";
+import { UserStorage } from './contexts/userContext'
 // import ProtectRoutes from "./helper/ProtectedRoutes";
 // import { Footer } from "./components/Footer/Footer";
 
 function App() {
-  // const { user, loading, error } = useUserContext();
   const [isNewQuestionModalOpen , setIsNewQuestionModalOpen] = useState()
 
   function handleOpenNewQuestionModal() {
@@ -35,6 +35,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <UserStorage>
           <Header onOpenNewQuestionForm={handleOpenNewQuestionModal} />
           <NewQuestionModal
             isOpen={isNewQuestionModalOpen}
@@ -58,6 +59,7 @@ function App() {
               <Route path="tarefa/:id" element={<Question />} />
             </Route>
           </Routes>
+          </UserStorage>
       </BrowserRouter>
     </>
   );

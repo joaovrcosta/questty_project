@@ -9,7 +9,7 @@ export function Feed() {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3333/questions/ask").then((res) => {
+    axios.get("http://localhost:3333/questions/list").then((res) => {
       setQuestions(res.data);
     });
   }, []);
