@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import api from "../../services/api-test";
+import { api } from "../../services/api-test";
 
 export function Test() {
   // const [questions, setQuestions] = useState([])

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 export function Feed() {
   const [questions, setQuestions] = useState([]);
 
@@ -35,10 +34,10 @@ export function Feed() {
       </div>
 
       <ul>
-        {questions.map((repo) => {
+        {questions.map((repo, key) => {
           return (
-            <div className={styles.questionContainer}>
-              <li className={styles.questionContainerText} key={repo.title}>
+            <div key={key} className={styles.questionContainer}>
+              <li className={styles.questionContainerText} key={key}>
                 <strong>{repo.title}</strong>
                 <p>{repo.content}</p>
                 <span>

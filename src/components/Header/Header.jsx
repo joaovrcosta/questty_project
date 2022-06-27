@@ -33,7 +33,8 @@ const Header = ({ onOpenNewQuestionForm }) => {
             alt=""
           />
         </Link>
-        <button type="button" onClick={onOpenNewQuestionForm}>Postar</button>
+        {/* Botão desativado até novos testes */}
+        {/* <button type="button" onClick={onOpenNewQuestionForm}>Postar</button> */}
       </nav>
     </header>
   );

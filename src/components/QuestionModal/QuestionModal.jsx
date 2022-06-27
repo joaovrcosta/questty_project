@@ -95,7 +95,9 @@ export function NewQuestionModal({ isOpen, onRequestClose }) {
             <option value="Espanhol">Espanhol</option>
             <option value="Musica">Musica</option>
           </select> */}
-          <button type="submit">Faça sua pergunta</button>
+          <button onClick={onRequestClose} type="submit">
+            Faça sua pergunta
+          </button>
         </form>
       </Modal>
     </div>

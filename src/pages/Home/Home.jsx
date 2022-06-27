@@ -2,7 +2,7 @@ import { Footer } from "../../components/Footer/Footer";
 import { LandingHeader } from "../../components/HeaderLandingPage/LandingHeader";
 import styles from "./Home.module.scss";
 
-export function Home() {
+export function Home({ onOpenNewQuestionForm }) {
   return (
     <>
       <LandingHeader />
@@ -21,7 +21,7 @@ export function Home() {
 
         <div className={styles.homeFixedButton}>
           <p>Faça uma pergunta</p>
-          <button>+</button>
+          <button onClick={onOpenNewQuestionForm}>+</button>
         </div>
 
         <section className={styles.homeContainerCardsContainer}>

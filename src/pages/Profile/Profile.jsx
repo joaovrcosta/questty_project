@@ -8,14 +8,17 @@ import { useContextAuth } from "../../providers/AuthContext";
 
 export function Profile() {
   const { userData } = useContextAuth();
+  console.log(userData)
 
-  console.log(userData);
   return (
     <main className={styles.profileContainer}>
-      <div className={styles.profileContainerSectionImage}>
+      <div className={styles.profileContainerSectionImage}> 
         <div className={styles.profileContainerSectionImageAvatar}>
           <img
-            src={avatar03}
+          alt="foto de pefil"
+          src={avatar03}
+            // usar esse ternario quando tudo estiver setado:
+            // src={userData?.avatar == null ? avatar03 : userData?.avatar}
             className={styles.profileContainerSectionImageAvatarIcon}
           />
         </div>
@@ -103,11 +106,13 @@ export function Profile() {
                   styles.profileContainerLastAnswersCardLinkHeaderNickname
                 }
               >
+                <Link to="">
                 <p
                   className={
                     styles.profileContainerLastAnswersCardLinkHeaderNicknameText
                   }
                 >{userData?.username}</p>
+                </Link>
               </div>
 
               <div

@@ -1,10 +1,10 @@
-// import { useUserContext } from "../../contexts/UserContext";
-// import { Navigate } from 'react-router-dom'
+import { useContextAuth } from "../providers/AuthContext/index";
+import { Navigate } from 'react-router-dom'
 
-// const ProtectRoutes = () => {
-//     const { login } = useUserContext()
+const ProtectRoutes = ({children}) => {
+    const { logged } = useContextAuth()
 
-//     return login ?  <div>Verdadeiro</div>: <Navigate to="/login"/>
-// }
+    return logged ? children : <Navigate to="/login"/>
+}
 
-// export default ProtectRoutes;
+export default ProtectRoutes;

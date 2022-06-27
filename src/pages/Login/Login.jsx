@@ -1,12 +1,14 @@
 import { useState } from "react";
 import styles from "./Login.module.scss";
 import { useContextAuth } from "../../providers/AuthContext";
+import { Navigate } from "react-router-dom";
+
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { handleUserLogin } = useContextAuth()
+  const { handleUserLogin, logged } = useContextAuth()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +16,8 @@ const Signin = () => {
     handleUserLogin(email, password)
     
   };
+
+  if(logged) return (<Navigate to="/feed"/>)
 
   return (
     <div className={styles.loginContainer}>

@@ -1,17 +1,24 @@
+import { useContextAuth } from "../../providers/AuthContext";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+
 import styles from "../Question/Question.module.scss";
 import avatar18 from "../../assets/images/avatar-18.svg";
 import dialogIcon from "../../assets/images/dialog-icon.svg";
 import plusIcon from "../../assets/images/plus-icon.svg";
 import noAnswers from "../../assets/images/no-answers.svg";
-import starLike from "../../assets/images/star-like-icon.svg";
-import starRated from "../../assets/images/star-rated.svg";
-import starUnrated from "../../assets/images/star-unrated.svg";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
+// import starLike from "../../assets/images/star-like-icon.svg";
+// import starRated from "../../assets/images/star-rated.svg";
+// import starUnrated from "../../assets/images/star-unrated.svg";
 
 export function Question() {
   const [question, setQuestion] = useState();
+  const [answer, setAnswer] = useState()
+
+  //contexto
+  const { userData } = useContextAuth();
+  console.log(userData);
 
   // useEffect(() => {
   //   axios.get("http://localhost:3333/questions/ask")
@@ -24,11 +31,23 @@ export function Question() {
   useEffect(() => {
     axios
       .get(`http://localhost:3333/questions/list?id=${id}`)
-      .then((response) => setQuestion(response.data))
+      .then((response) => console.log(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
+  }, [id]);
+
+  // axios
+  //       .post("http://localhost:3333/answers", {
+  //         email,
+  //         password,
+  //       })
+  //       .then((res) => {
+  //         console.log(res);
+  //         navigate("/feed", { replace: true });
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
 
   return (
     <main className={styles.questContainer}>
@@ -71,7 +90,7 @@ export function Question() {
           />
         </div>
 
-        <div className={styles.questContainerQuestionRespond}>
+        <form className={styles.questContainerQuestionRespond}>
           <textarea
             name="answer"
             id=""
@@ -88,15 +107,15 @@ export function Question() {
             />
             Responder
           </button>
-        </div>
+        </form>
 
-        <div className={styles.questContainerQuestionAnswers}>
+        {/* <div className={styles.questContainerQuestionAnswers}>
           <div className={styles.questContainerQuestionAnswersItemBest}>
             <div className={styles.answerContainer}>
               <div className={styles.answerContainerUpper}>
                 <img
                   src={avatar18}
-                  alt="profile image"
+                  alt="foto de perfil"
                   className={styles.answerContainerUpperImage}
                 />
                 <p className={styles.answerContainerUpperNickname}>
@@ -144,7 +163,7 @@ export function Question() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.emptyAnswers}>
           <p className={styles.emptyAnswersText}>Nada por aqui...</p>
