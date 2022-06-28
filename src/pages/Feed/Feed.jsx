@@ -3,9 +3,15 @@ import { Footer } from "../../components/Footer/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useContextAuth } from "../../providers/AuthContext"
+import { confirmPasswordReset } from "firebase/auth";
 
 export function Feed() {
   const [questions, setQuestions] = useState([]);
+
+  const { userData } = useContextAuth()
+
+  console.log(userData);
 
   useEffect(() => {
     axios.get("http://localhost:3333/questions/list").then((res) => {

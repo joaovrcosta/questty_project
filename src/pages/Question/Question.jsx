@@ -13,8 +13,9 @@ import noAnswers from "../../assets/images/no-answers.svg";
 // import starUnrated from "../../assets/images/star-unrated.svg";
 
 export function Question() {
+  const [content, setContent] = useState('')
+  const [author_id, setAuthorId] = useState('')
   const [question, setQuestion] = useState();
-  const [answer, setAnswer] = useState()
 
   //contexto
   const { userData } = useContextAuth();
@@ -31,23 +32,24 @@ export function Question() {
   useEffect(() => {
     axios
       .get(`http://localhost:3333/questions/list?id=${id}`)
-      .then((response) => console.log(response.data))
+      .then((response) => setQuestion(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [id]);
 
-  // axios
-  //       .post("http://localhost:3333/answers", {
-  //         email,
-  //         password,
-  //       })
-  //       .then((res) => {
-  //         console.log(res);
-  //         navigate("/feed", { replace: true });
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
+    // const postAnswer = (e) => {
+    //   e.preventDefault();
+  
+    //   axios
+    //     .post("http://localhost:3333/answers", {
+    //       author_id,
+    //       content,
+    //       question,
+    //     })
+    //     .then((res) => console.log(res.data))
+    //     .catch((err) => console.log(err));
+    // };
 
   return (
     <main className={styles.questContainer}>
@@ -91,15 +93,18 @@ export function Question() {
         </div>
 
         <form className={styles.questContainerQuestionRespond}>
-          <textarea
+          <textarea onChange={(e) => {
+            setContent(e.target.value)
+          }}
             name="answer"
             id=""
+            value={content}
             cols="30"
             rows="10"
             className={styles.questContainerQuestionRespondTextarea}
           ></textarea>
 
-          <button className={styles.questContainerQuestionRespondButton}>
+          <button type='submit' className={styles.questContainerQuestionRespondButton}>
             <img
               className={styles.questContainerQuestionRespondButtonImage}
               src={plusIcon}

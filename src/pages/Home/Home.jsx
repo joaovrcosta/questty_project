@@ -1,10 +1,17 @@
 import { Footer } from "../../components/Footer/Footer";
 import { LandingHeader } from "../../components/HeaderLandingPage/LandingHeader";
 import styles from "./Home.module.scss";
+import { useContextAuth } from "../../providers/AuthContext";
+import { Navigate } from "react-router-dom";
+
 
 export function Home({ onOpenNewQuestionForm }) {
-  return (
-    <>
+  const { logged } = useContextAuth()
+
+  if(logged) return (<Navigate to="/feed"/>)
+
+  return ( 
+      <>
       <LandingHeader />
 
       <main className={styles.homeContainer}>
@@ -112,5 +119,5 @@ export function Home({ onOpenNewQuestionForm }) {
 
       <Footer />
     </>
-  );
+    )
 }

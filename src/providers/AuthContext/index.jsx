@@ -2,13 +2,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api-test";
+import { database } from "../../services/firebase-config";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
   const [loading, setLoading] = useState(false);
-  const [login, setLogin] = useState(null);
   const [logged, setLogged] = useState(false);
   const [session, setSession] = useState(null);
 
@@ -16,23 +16,23 @@ const AuthProvider = ({ children }) => {
 
   const handleUserLogin = async (email, password) => {
     try {
-      setLogin(true);
-      setLoading(true);
-
       const response = await axios.post("http://localhost:3333/sessions", {
         email,
         password,
       });
+
       setUserData(response.data.student);
+    
       window.localStorage.setItem("token", response.data.token);
-      navigate("/feed");
+      // navigate("/feed");
+      setLogged(true)
     } catch (err) {
       console.log(err);
-      setLogin(false);
     } finally {
       setLoading(false);
     }
   };
+
 
   // useEffect(() => {
   //   async function autoLogin() {
@@ -65,7 +65,8 @@ const AuthProvider = ({ children }) => {
         await api
           .get("/students")
           .then(({ data }) => {
-            setSession(data.session);
+            console.log(data);
+            setUserData(data);
             setLogged(true);
           })
           .catch(({ response }) => {
@@ -86,7 +87,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ logged, session, handleUserLogin, userData, loading, login }}
+      value={{ logged, session, handleUserLogin, userData, loading }}
     >
       {children}
     </AuthContext.Provider>

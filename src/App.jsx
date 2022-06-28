@@ -19,8 +19,10 @@ import { Question } from "./pages/Question/Question";
 import ProtectRoutes from "./helper/ProtectedRoutes";
 // import { Footer } from "./components/Footer/Footer";
 // import { AuthProvider } from "./contexts/AuthContext";
+import { useContextAuth } from "./providers/AuthContext";
 
 function App() {
+  const { loading } = useContextAuth()
   const [isNewQuestionModalOpen, setIsNewQuestionModalOpen] = useState();
 
   function handleOpenNewQuestionModal() {
@@ -30,6 +32,8 @@ function App() {
   function handleCloseNewQuestionModal() {
     setIsNewQuestionModalOpen(false);
   }
+
+  if(loading) return (<div>Carregando...</div>)
 
   return (
     <>
