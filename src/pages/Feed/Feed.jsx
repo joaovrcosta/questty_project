@@ -11,8 +11,6 @@ export function Feed() {
 
   const { userData } = useContextAuth()
 
-  console.log(userData);
-
   useEffect(() => {
     axios.get("http://localhost:3333/questions/list").then((res) => {
       setQuestions(res.data);

@@ -8,8 +8,7 @@ import { useContextAuth } from "../../providers/AuthContext";
 
 export function Profile() {
   const { userData } = useContextAuth();
-  console.log(userData)
-
+  
   return (
     <main className={styles.profileContainer}>
       <div className={styles.profileContainerSectionImage}> 

@@ -2,6 +2,7 @@ import { useContextAuth } from "../../providers/AuthContext";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { api } from "../../services/api-test";
 
 import styles from "../Question/Question.module.scss";
 import avatar18 from "../../assets/images/avatar-18.svg";
@@ -13,43 +14,42 @@ import noAnswers from "../../assets/images/no-answers.svg";
 // import starUnrated from "../../assets/images/star-unrated.svg";
 
 export function Question() {
-  const [content, setContent] = useState('')
-  const [author_id, setAuthorId] = useState('')
+  const [content, setContent] = useState("");
+  const [answer_author, setAnswerAuthor] = useState("");
   const [question, setQuestion] = useState();
 
   //contexto
   const { userData } = useContextAuth();
-  console.log(userData);
-
-  // useEffect(() => {
-  //   axios.get("http://localhost:3333/questions/ask")
-  //   .then((res) => {setQuestion(res.id);
-  //   });
-  // }, []);]
 
   let { id } = useParams();
-
+  
   useEffect(() => {
-    axios
-      .get(`http://localhost:3333/questions/list?id=${id}`)
+    api.get(`/questions/list?id=${id}`)
       .then((response) => setQuestion(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, [id]);
+  }, []);
 
-    // const postAnswer = (e) => {
-    //   e.preventDefault();
-  
-    //   axios
-    //     .post("http://localhost:3333/answers", {
-    //       author_id,
-    //       content,
-    //       question,
-    //     })
-    //     .then((res) => console.log(res.data))
-    //     .catch((err) => console.log(err));
-    // };
+  const postAnswer = async (e) => {
+    e.preventDefault();
+
+    const { id } = question;
+    const { author_id } = answer_author;
+
+   const data = await axios.post("http://localhost:3333/answers", {
+        author_id,
+        content,
+        id,
+      })
+      .then((res) => 
+      {return console.log(res)}
+        
+      )
+      .catch((err) => console.error(err));
+
+  };
+
 
   return (
     <main className={styles.questContainer}>
@@ -59,7 +59,9 @@ export function Question() {
           src={avatar18}
           alt="user avatar"
         />
-        <p className={styles.questContainerUpperNickname}>joaovrcosta</p>
+        <p className={styles.questContainerUpperNickname}>
+          userdefault
+        </p>
         <p className={styles.questContainerUpperCreatedAt}>há 43 minutos</p>
         <p className={styles.questContainerUpperSubject}>Biologia</p>
       </div>
@@ -92,10 +94,14 @@ export function Question() {
           />
         </div>
 
-        <form className={styles.questContainerQuestionRespond}>
-          <textarea onChange={(e) => {
-            setContent(e.target.value)
-          }}
+        <form
+          onSubmit={postAnswer}
+          className={styles.questContainerQuestionRespond}
+        >
+          <textarea
+            onChange={(e) => {
+              setContent(e.target.value);
+            }}
             name="answer"
             id=""
             value={content}
@@ -104,7 +110,10 @@ export function Question() {
             className={styles.questContainerQuestionRespondTextarea}
           ></textarea>
 
-          <button type='submit' className={styles.questContainerQuestionRespondButton}>
+          <button
+            type="submit"
+            className={styles.questContainerQuestionRespondButton}
+          >
             <img
               className={styles.questContainerQuestionRespondButtonImage}
               src={plusIcon}
